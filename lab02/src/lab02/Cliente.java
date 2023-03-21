@@ -44,9 +44,12 @@ public class Cliente {
 		this.nome = nome;
 	}
 	public String toString() {
-		return "";
+		return "{Cliente:{Nome:"+this.getNome()+", \n CPF: "+this.getCpf()+",\n"
+				+ "Data de Nascimento: "+this.getDataNascimento()+",\n"
+				+ "Idade:"+this.getIdade()+",\n"
+				+ "Endereco:"+this.getEndereco()+ "}}";
 	}
-	public boolean validarCPF(String cpf) {
+	public static boolean validarCPF(String cpf) {
 		cpf.replaceAll("", cpf);
 		if(cpf.length() != 11)
 			return false;
@@ -63,7 +66,7 @@ public class Cliente {
 		return false;
 		
 	}
-	private String descobrirDigitosVerificadores(String cpf) {
+	private static String descobrirDigitosVerificadores(String cpf) {
 		int primeiroDigito, segundoDigito;
 		int multiplicador = 10;
 		int somatoria = 0;

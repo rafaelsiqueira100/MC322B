@@ -27,5 +27,9 @@ public class Veiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	
+	public String toString() {
+		return "{Veiculo:{Placa:"+this.getPlaca()+", \n Marca: "+this.getMarca()+",\n"
+				+ "Modelo: "+this.getModelo()
+				+ "}}";
+	}
 }

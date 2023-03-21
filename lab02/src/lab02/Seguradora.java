@@ -36,4 +36,11 @@ public class Seguradora {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	public String toString() {
+		return "{Seguradora:{Nome:"+this.getNome()+", \n"
+				+ "Telefone: "+this.getTelefone()+",\n"
+				+ "Email: "+this.getEmail()+",\n"
+				+ "Endereco:"+this.getEndereco()+"\n"
+				+ "}}";
+	}
 }

@@ -30,4 +30,10 @@ public class Sinistro {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	public String toString() {
+		return "{Sinistro:{Id:"+Integer.toString(this.getId())+", \n"
+				+ "Data: "+this.getData()+",\n"
+				+ "Endereco: "+this.getEndereco()
+				+ "}}";
+	}
 }
