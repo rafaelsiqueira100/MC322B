@@ -1,2 +1,7 @@
-# MC322B
-Laboratórios de Programação Orientada a Objetos - MC322
+# **MC322 - Turma B **
+# **Aluno**
+	Rafael Andre Alves de Siqueira
+# **RA**
+	243360
+#**Curso**
+	Engenharia da Computação
