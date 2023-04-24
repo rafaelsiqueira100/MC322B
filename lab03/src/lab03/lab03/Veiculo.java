@@ -5,10 +5,11 @@ public class Veiculo {
 	private String marca;
 	private String modelo;
 	private int anoFabricacao;
-	public Veiculo (String placa, String marca, String modelo) {
+	public Veiculo (String placa, String marca, String modelo, int anoFabricacao) {
 		this.placa = placa;
 		this.marca = marca;
 		this.modelo = modelo;
+		this.anoFabricacao = anoFabricacao;
 	}
 	public String getMarca() {
 		return marca;
@@ -28,7 +29,16 @@ public class Veiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public String toString(){
-		
+	public String toString() {
+		return "{Veiculo:{Placa:"+this.getPlaca()+", \n Marca: "+this.getMarca()+",\n"
+				+ "Modelo: "+this.getModelo()+", \n"
+				+ "Ano de Fabricação: "+Integer.toString(anoFabricacao)
+				+ "}}";
+	}
+	public int getAnoFabricacao() {
+		return anoFabricacao;
+	}
+	public void setAnoFabricacao(int anoFabricacao) {
+		this.anoFabricacao = anoFabricacao;
 	}
 }
