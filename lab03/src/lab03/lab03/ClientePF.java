@@ -1,3 +1,5 @@
+//Nome: Rafael Andre Alves de Siqueira RA: 243360
+// Classe que representa a entidade ClientePF
 package lab03;
 
 import java.util.Date;
@@ -19,7 +21,7 @@ public class ClientePF extends Cliente{
     private Date dataNascimento;
     private String classeEconomica;
 
-
+// algoritmo para validar CPF
     public boolean validarCPF(String cpf) {
 		cpf.replaceAll("", cpf);
 		if(cpf.length() != 11)
@@ -37,6 +39,7 @@ public class ClientePF extends Cliente{
 		return false;
 		
 	}
+//algoritmo para descobrir digitos verificadores de determinado cpf
 	private String descobrirDigitosVerificadores(String cpf) {
 		int primeiroDigito, segundoDigito;
 		int multiplicador = 10;
@@ -63,6 +66,7 @@ public class ClientePF extends Cliente{
 			segundoDigito = 0;
 		return (char)(primeiroDigito+'0') +"" +(char)(segundoDigito+'0');		
 	}
+//método toString marcado com override pois foi sobrescito em relação ao método da classe Cliente
 	@Override
 	public String toString() {
 		return "{ClientePF:{Nome:"+this.getNome()+", \n CPF: "+this.getCpf()+",\n"

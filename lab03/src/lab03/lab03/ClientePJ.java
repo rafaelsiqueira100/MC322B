@@ -1,7 +1,9 @@
+//Nome: Rafael Andre Alves de Siqueira RA: 243360
+
 package lab03;
 
 import java.util.Date;
-
+// Classe que representa a entidade ClientePj
 public class ClientePJ extends Cliente{
     public ClientePJ(String nome, String cnpj, Date dataFundacao, String endereco) {
 		super(nome, endereco);
@@ -10,6 +12,7 @@ public class ClientePJ extends Cliente{
 	}
 	private final String CNPJ;
     private Date dataFundacao;
+//algoritmo de validar CNPJ
     public boolean validarCNPJ(String cnpj){
 		cnpj.replaceAll("", cnpj);
 		if(cnpj.length() != 14)
@@ -46,6 +49,7 @@ public class ClientePJ extends Cliente{
 		}
 		return true;
     }
+//método toString marcado com override pois foi sobrescrito em relação ao método da classe Cliente
 	@Override
     public String toString() {
 		return "{ClientePJ:{Nome:"+this.getNome()+", \n"

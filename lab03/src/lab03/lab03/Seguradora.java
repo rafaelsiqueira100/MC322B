@@ -1,3 +1,5 @@
+//Nome: Rafael Andre Alves de Siqueira RA:243360
+//Classe que representa a entidade Seguradora
 package lab03;
 
 import java.util.List;
@@ -45,12 +47,26 @@ public class Seguradora {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+//Adiciona um cliente na lista de clientes da seguradora
 	public boolean cadastrarCliente(Cliente cliente){
 		return listaClientes.add(cliente);
 	}
+// Remove um cliente na lista de clientes da seguradora
 	public boolean removerCliente(String cliente){
-		return listaClientes.remove(cliente);		
+	    ListIterator<Cliente> iterador = listaClientes.listIterator(0);
+	    int i=0;
+	    while(iterador.hasNext()){
+	        Cliente atual = iterador.next();
+	        if(atual.getNome().equals(cliente)){
+	            
+	            listaClientes.remove(i);
+	            return true;
+	        }
+	        i++;
+	    }
+		return false;		
 	}
+// Percorre e printa a lista de clientes da seguradora
 	public void listarClientes(String tipoCliente) {
 		ListIterator<Cliente> iterador = listaClientes.listIterator(0);
 		while(iterador.hasNext()){
@@ -63,9 +79,10 @@ public class Seguradora {
 			}
 		}
 	}
+// gera um sinistro para um determinado veiculo e cliente para esta seguradora
 	public boolean gerarSinistro(Date data, String endereco, Veiculo veiculo, Cliente cliente) {
 		//data, endereco, seguradora, veiculo, cliente
-		Sinistro sinistro = new Sinistro(data.toString(), endereco, (Seguradora)this, veiculo , cliente);
+		Sinistro sinistro = new Sinistro(data.toString(), endereco, (Seguradora)this, veiculo, cliente);
 		return listaSinistros.add(sinistro);
 	}
 	public boolean visualizarSinistro(String cliente) {
@@ -82,6 +99,7 @@ public class Seguradora {
 		}
 		return printou;
 	}
+// percorre e printa a lista de sinistros da seguradora
 	public void listarSinistros() {
 		ListIterator<Sinistro> iterador = listaSinistros.listIterator(0);
 		while(iterador.hasNext()){

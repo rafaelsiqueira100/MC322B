@@ -1,7 +1,9 @@
+//Nome: Rafael Andre Alves de Siqueira RA: 243360
 package lab03;
 
 import java.util.List;
 import java.util.LinkedList;
+//Classe que representa a entidade Cliente
 
 public class Cliente {
 	private String nome;
@@ -13,6 +15,7 @@ public class Cliente {
 		this.endereco = endereco;
 		this.listaVeiculos = new LinkedList<Veiculo>();
 	}
+// adiciona um veículo na lista de veículos
 	public boolean cadastrarVeiculo(Veiculo aCadastrar){
 		return listaVeiculos.add(aCadastrar);
 	}

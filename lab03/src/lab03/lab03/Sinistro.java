@@ -1,3 +1,5 @@
+//Nome: Rafael Andre Alves de Siqueira RA: 243360
+//Classe que representa a entidade Sinistro
 package lab03;
 
 public class Sinistro {
@@ -20,10 +22,6 @@ public class Sinistro {
 	public int getId() {
 		return this.id;
 	}
-	public void setId(int novoId) {
-		if (novoId > 0)
-			this.id = novoId;
-	}
 	public String getData() {
 		return this.data;
 	}
@@ -37,7 +35,7 @@ public class Sinistro {
 		this.endereco = endereco;
 	}
 	public Cliente getCliente(){
-		return this.getCliente();
+		return this.cliente;
 	}
 	public void setCliente(Cliente cliente){
 		if(cliente != null)
