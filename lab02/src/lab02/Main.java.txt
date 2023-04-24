@@ -1,0 +1,53 @@
+package lab02;
+//Nome: Rafael Andre Alves de Siqueira
+//RA:243360
+public class Main {
+		
+		public static void main (String[] args) {
+			String dataSinistro1 = "21/03/2023";
+			String enderecoSinistro1 = "Avenida das Amoreiras, 1765";
+			Sinistro sinistro1 = new Sinistro(dataSinistro1, enderecoSinistro1);
+			Veiculo veiculo1 = new Veiculo("MQO7381", "Ford", "Sedan 2013") ;
+			String cpfCliente1 = "459.495.459-76";
+			
+			if(!Cliente.validarCPF(cpfCliente1)) {
+				cpfCliente1 =  "470.337.760-80";
+			}
+			Cliente cliente1 = new Cliente("Mário", cpfCliente1 , "25/03/1975", 49, "Avenida das Amoreiras, 68");
+			Seguradora seguradora1 = new Seguradora("Bradesco", "6548-9856", "reclameaqui@bradesco.com.br", "Avenida Paulista, 1957");
+			
+			System.out.println("Acidente 1: "+sinistro1.toString()+",\n"+seguradora1.toString()+",\n"+cliente1.toString()+",\n"+veiculo1.toString()+"}");
+			
+			//Supondo que o veiculo trocou de placa e de modelo
+			veiculo1.setPlaca("MQO7E81");
+			veiculo1.setModelo("Maverick");
+			
+			//Supondo que o cliente se mudou, trocou de nome e passou-se um ano
+			cliente1.setEndereco("Rua das Hortaliças, 785");
+			cliente1.setNome("João");
+			cliente1.setIdade(cliente1.getIdade()+1);
+			
+			//Supondo que a seguradora atualizou seus dados
+			seguradora1.setNome("Bradesco Seguros");
+			seguradora1.setTelefone("98759-4525");
+			seguradora1.setEmail("reclameaqui@braseguros.com.br");
+			seguradora1.setEndereco("Avenida Roxo Moreira, 987");
+			
+			//Supondo que há um outro acidente no mesmo local
+			Sinistro sinistro2 = new Sinistro("22/03/2023", enderecoSinistro1);
+			
+			System.out.println("Acidente 2: "+sinistro2.toString()+",\n"+seguradora1.toString()+",\n"+cliente1.getNome()+",\n"+veiculo1.toString()+"}");
+			
+			//Consultando dados do Sinistro 2
+			System.out.println("Data do Sinistro do Acidente 2 ="+sinistro2.getData());
+			System.out.println("Endereço do Acidente 2 ="+sinistro2.getEndereco());
+			System.out.println("Id do Sinistro do Acidente 2 ="+sinistro2.getId());
+			//Consultando dados do Cliente 1
+			System.out.println("Cliente1:{CPF:"+cliente1.getCpf()+", Data de Nascimento:"+cliente1.getDataNascimento()+", Endereco:"+cliente1.getEndereco()+", Idade:"+cliente1.getIdade()+" }");
+			//Consultando dados do Veículo 1
+			System.out.println("Veiculo1:{Marca:"+veiculo1.getMarca()+", Modelo:"+veiculo1.getModelo()+ ", Placa:"+ veiculo1.getPlaca()+"}");
+			//Obtendo dados da Seguradora 1
+			System.out.println("Seguradora1:{Nome:"+seguradora1.getNome()+", E-mail:"+seguradora1.getEmail()+ ", Endereco:"+ seguradora1.getEndereco() + ", Telefone:"+seguradora1.getTelefone()+"}");
+
+		}
+}
