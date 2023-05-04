@@ -1,7 +1,7 @@
 //Nome: Rafael Andre Alves de Siqueira
 //RA: 243360
 //Classe que representa a entidade Veículo
-package lab03;
+//package lab03;
 
 public class Veiculo {
 	private String placa;

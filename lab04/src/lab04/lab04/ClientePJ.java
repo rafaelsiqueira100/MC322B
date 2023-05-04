@@ -1,6 +1,6 @@
 //Nome: Rafael Andre Alves de Siqueira RA: 243360
 
-package lab03;
+//package lab03;
 
 import java.util.Date;
 // Classe que representa a entidade ClientePj
@@ -12,43 +12,7 @@ public class ClientePJ extends Cliente{
 	}
 	private final String CNPJ;
     private Date dataFundacao;
-//algoritmo de validar CNPJ
-    public boolean validarCNPJ(String cnpj){
-		cnpj.replaceAll("", cnpj);
-		if(cnpj.length() != 14)
-			return false;
-		String digitosVerifOriginais = cnpj.substring(12,14);
-		String cnpjCalculo = cnpj.substring(0,12);
-		int[] digitosVerif = new int[2];
-		int[] pesos = {6,5,4,3,2,9,8,7,6,5,4,3,2};
-		int somatoriaPrimeiroDigito = 0;
-		for(int i=0; i < cnpjCalculo.length(); i++)
-			somatoriaPrimeiroDigito += pesos[i+1]*Integer.parseInt(cnpjCalculo.charAt(i)+"");
-	
-		int resto = somatoriaPrimeiroDigito % 11;
-		int quociente = somatoriaPrimeiroDigito / 11;
-		if(resto<2)
-			digitosVerif[0] = 0;
-		else
-			digitosVerif[0] = 11 - resto;
-		cnpjCalculo += (char)(digitosVerif[0]+'0');
-		int somatoriaSegundoDigito = 0;
-		for(int i=0; i < cnpjCalculo.length(); i++){
-			somatoriaSegundoDigito += pesos[i]*Integer.parseInt(cnpjCalculo.charAt(i)+"");
-		}
-		resto = somatoriaSegundoDigito % 11;
-		quociente = somatoriaSegundoDigito / 11;
-		digitosVerif[1] = 11 - resto;
-		if(resto<2)
-			digitosVerif[1] = 0;
-		else
-			digitosVerif[0] = 11 - resto;
-		for(int i=0; i<2; i++){
-			if(Integer.parseInt(digitosVerifOriginais.charAt(i)+"") != digitosVerif[i])
-				return false;
-		}
-		return true;
-    }
+
 //método toString marcado com override pois foi sobrescrito em relação ao método da classe Cliente
 	@Override
     public String toString() {

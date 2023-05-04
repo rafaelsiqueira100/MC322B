@@ -1,6 +1,6 @@
 //Nome: Rafael Andre Alves de Siqueira RA:243360
 //Classe que representa a entidade Seguradora
-package lab03;
+//package lab03;
 
 import java.util.List;
 import java.util.ListIterator;
