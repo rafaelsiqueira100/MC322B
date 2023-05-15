@@ -106,6 +106,17 @@ public class Seguradora {
 			System.out.println(iterador.next().toString());
 		}
 	}
+	public float calcularPrecoSeguroCliente(Cliente clienteACalcular){
+		return clienteACalcular.calculaScore () * (1 + this.listaSinistros.size());
+	}
+	public float calcularReceita(){
+		float receitaAtual = 0;
+		ListIterator<Cliente> iterador = listaSinistros.listIterator(0);
+		while(iterador.hasNext()){
+			somatoria += iterador.next().calcularPrecoSeguroCliente();
+		}
+		return somatoria;
+	}
 	public String toString(){
 		return "{Seguradora:{Nome:"+this.getNome()+", \n"
 				+ "Telefone: "+this.getTelefone()+",\n"

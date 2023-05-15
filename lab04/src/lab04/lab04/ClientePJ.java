@@ -33,4 +33,7 @@ public class ClientePJ extends Cliente{
 		this.dataFundacao = dataFundacao;
 	}
 
+	public float calculaScore(int quantidadeFunc){
+		return VALOR_BASE * (1+quantidadeFunc)* super.listaVeiculos.size(); 
+	}
 }

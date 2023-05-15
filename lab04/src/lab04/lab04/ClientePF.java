@@ -68,4 +68,7 @@ public class ClientePF extends Cliente{
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+	public float calculaScore(){
+		return VALOR_BASE * FATOR_IDADE * super.listaVeiculos.size(); 
+	}
 }

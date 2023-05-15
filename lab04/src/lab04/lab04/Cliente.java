@@ -48,6 +48,19 @@ public class Cliente {
 			return true;
 		return false;
 	}
-	
+	public double calculaScore();
+
+	public boolean transferirSeguro(Cliente aReceber){
+		if(aReceber == null)
+			return false;
+		if(aReceber.listaVeiculos == null)
+			aReceber.listaVeiculos = new LinkedList<Veiculo>();
+		ListIterator<Sinistro> iterador = aReceber.listaVeiculos.listIterator(0);
+		while(iterador.hasNext()){
+			this.listaVeiculos.add(iterador.next());
+		}
+		this.listaVeiculos.clear();
+		return true;
+	}
 
 }
