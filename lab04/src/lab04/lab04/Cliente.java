@@ -2,12 +2,14 @@
 //package lab03;
 
 import java.util.List;
+import java.util.ListIterator;
 import java.util.LinkedList;
 //Classe que representa a entidade Cliente
 
 public class Cliente {
 	private String nome;
 	private String endereco;
+	private double valorSeguro;
 	private List<Veiculo> listaVeiculos;
 
 	public Cliente(String nome, String endereco) {
@@ -15,15 +17,21 @@ public class Cliente {
 		this.endereco = endereco;
 		this.listaVeiculos = new LinkedList<Veiculo>();
 	}
+	public int numeroVeiculos(){
+		return listaVeiculos.size();
+	}
 // adiciona um veículo na lista de veículos
 	public boolean cadastrarVeiculo(Veiculo aCadastrar){
 		return listaVeiculos.add(aCadastrar);
 	}
+	public void setValorSeguro(double novo){
+		this.valorSeguro = novo;
+	}
 	public boolean removerVeiculo(Veiculo veiculo){
-		return listaVeiculos.remove(listaVeiculos.indexOf(veiculo));
+		return listaVeiculos.remove(listaVeiculos.indexOf(veiculo)) != null;
 	}
 	public void listarVeiculos() {
-		ListIterator<Sinistro> iterador = listaVeiculos.listIterator(0);
+		ListIterator<Veiculo> iterador = listaVeiculos.listIterator(0);
 		while(iterador.hasNext()){
 			System.out.println(iterador.next().toString());
 		}
@@ -57,14 +65,16 @@ public class Cliente {
 			return true;
 		return false;
 	}
-	public double calculaScore();
+	public double calculaScore(){
+		return 0;
+	}
 
 	public boolean transferirSeguro(Cliente aReceber){
 		if(aReceber == null)
 			return false;
 		if(aReceber.listaVeiculos == null)
 			aReceber.listaVeiculos = new LinkedList<Veiculo>();
-		ListIterator<Sinistro> iterador = aReceber.listaVeiculos.listIterator(0);
+		ListIterator<Veiculo> iterador = aReceber.listaVeiculos.listIterator(0);
 		while(iterador.hasNext()){
 			this.listaVeiculos.add(iterador.next());
 		}

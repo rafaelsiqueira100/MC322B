@@ -3,6 +3,7 @@
 //package lab04;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class ClientePF extends Cliente{
     public ClientePF(String nome, String cpf, Date dataNascimento, String endereco, String genero, Date dataLicenca, String educacao, String classeEconomica) {
@@ -68,7 +69,21 @@ public class ClientePF extends Cliente{
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	public float calculaScore(){
-		return VALOR_BASE * FATOR_IDADE * super.listaVeiculos.size(); 
+	private int getIdade(){
+		Date dataAtual = new Date(System.currentTimeMillis());
+		long diffInMillies = Math.abs(dataAtual.getTime() - this.dataNascimento.getTime());
+		long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+		return (int) Math.floor((double)diff/365.25);
+	}
+	public double calculaScore(){
+		CalcSeguro fator_idade ;
+		int idade = getIdade();
+		if (idade < 30)
+			fator_idade = CalcSeguro.FATOR_18_30;
+		else if (idade < 60)
+			fator_idade = CalcSeguro.FATOR_30_60;
+		else 
+			fator_idade = CalcSeguro.FATOR_60_90;
+		return CalcSeguro.VALOR_BASE.getFator() * fator_idade.getFator() * super.numeroVeiculos(); 
 	}
 }

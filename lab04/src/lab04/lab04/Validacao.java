@@ -59,7 +59,6 @@ public class Validacao{
 			somatoriaPrimeiroDigito += pesos[i+1]*Integer.parseInt(cnpjCalculo.charAt(i)+"");
 	
 		int resto = somatoriaPrimeiroDigito % 11;
-		int quociente = somatoriaPrimeiroDigito / 11;
 		if(resto<2)
 			digitosVerif[0] = 0;
 		else
@@ -70,7 +69,6 @@ public class Validacao{
 			somatoriaSegundoDigito += pesos[i]*Integer.parseInt(cnpjCalculo.charAt(i)+"");
 		}
 		resto = somatoriaSegundoDigito % 11;
-		quociente = somatoriaSegundoDigito / 11;
 		digitosVerif[1] = 11 - resto;
 		if(resto<2)
 			digitosVerif[1] = 0;
