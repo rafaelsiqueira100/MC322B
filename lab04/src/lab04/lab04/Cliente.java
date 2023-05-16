@@ -19,6 +19,15 @@ public class Cliente {
 	public boolean cadastrarVeiculo(Veiculo aCadastrar){
 		return listaVeiculos.add(aCadastrar);
 	}
+	public boolean removerVeiculo(Veiculo veiculo){
+		return listaVeiculos.remove(listaVeiculos.indexOf(veiculo));
+	}
+	public void listarVeiculos() {
+		ListIterator<Sinistro> iterador = listaVeiculos.listIterator(0);
+		while(iterador.hasNext()){
+			System.out.println(iterador.next().toString());
+		}
+	}
 	public String getEndereco() {
 		return endereco;
 	}

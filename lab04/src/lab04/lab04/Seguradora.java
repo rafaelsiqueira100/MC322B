@@ -83,8 +83,11 @@ public class Seguradora {
 	public boolean gerarSinistro(Date data, String endereco, Veiculo veiculo, Cliente cliente) {
 		//data, endereco, seguradora, veiculo, cliente
 		Sinistro sinistro = new Sinistro(data.toString(), endereco, (Seguradora)this, veiculo, cliente);
+		System.out.println("Sinistro gerado com id %d", sinistro.getId());
 		return listaSinistros.add(sinistro);
+
 	}
+	public boolean removerSinistro
 	public boolean visualizarSinistro(String cliente) {
 		if(cliente == null || cliente.equals(""))
 			return false;

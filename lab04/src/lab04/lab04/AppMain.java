@@ -127,6 +127,7 @@ public class AppMain {
 						}
 						System.out.println("Digite o endereço do cliente:");
 						String endereco = scanner.nextLine();
+						Cliente novoCliente = null;
 						if(tipo.charAt(0) == 'F' || tipo.charAt(0) == 'f'){
 							
 							System.out.println("Digite o CPF do cliente:");
@@ -147,7 +148,8 @@ public class AppMain {
 							String educacao = scanner.nextLine();
 							System.out.println("Digite a classe econômica do cliente:");
 							String classeEconomica = scanner.nextLine();
-							clientes.add(new ClientePF(nome, cpf, dataNascimento, endereco, genero, dataLicenca, educacao, classeEconomica));
+							novoCliente = new ClientePF(nome, cpf, dataNascimento, endereco, genero, dataLicenca, educacao, classeEconomica); 
+							
 						}
 						else{
 							System.out.println("Digite o cnpj do cliente:");
@@ -159,8 +161,14 @@ public class AppMain {
 							System.out.println("Digite a data de fundacao do cliente:");
 							String data = scanner.nextLine();
 							Date dataFundacao = converterData(data); 
-							clientes.add(new ClientePJ(nome, cnpj, dataFundacao, endereco));
+							novoCliente = new ClientePJ(nome, cnpj, dataFundacao, endereco);
+							
 						}
+						clientes.add(novoCliente);
+						System.out.println("Digite o nome da seguradora que o cliente tem seguro:");
+						String nomeSeguradora = scanner.nextLine();
+						Seguradora seguradora = seguradoras.stream().findFirst(o -> o.getNome().equals(nome));
+						seguradora.cadastrarCliente(novoCliente);
 					break;
 					case MenuOperacoesCadastrar.CADASTRAR_VEICULO:
 						System.out.println("Digite a placa do veículo:");
@@ -200,14 +208,53 @@ public class AppMain {
 			while(operacao != MenuOperacoesListar.VOLTAR){
 				switch(operacao){
 					case MenuOperacoesListar.LISTAR_CLIENTE:
+						printarLista(clientes);
 					break;
 					case MenuOperacoesListar.LISTAR_SINISTROS_SEGURADORA:
+						System.out.println("Digite o nome da seguradora:");
+						String nomeSeguradora = scanner.readLine();
+						Seguradora seguradora = seguradoras.stream().findFirst(o -> o.getNome().equals(nomeSeguradora));
+						seguradora.listarSinistros();
 					break;
 					case MenuOperacoesListar.LISTAR_SINISTROS_CLIENTE:
+						System.out.println("Digite o nome da seguradora:");
+						String nomeSeguradora = scanner.readLine();
+						Seguradora seguradora = seguradoras.stream().findFirst(o -> o.getNome().equals(nomeSeguradora));
+						System.out.println("Digite F se o cliente é pessoa física e J para pessoa jurídica");
+						char letra = scanner.readLine().charAt(0);
+						Cliente clienteSinistros;
+						if(letra == 'f' || letra == 'F'){
+							System.out.println("Digite o CPF do cliente:");
+							String cpf = scanner.readLine();
+							clienteSinistros = clientes.stream().findFirst(o -> o.getCpf().equals(cpf));
+						}
+						else{
+							System.out.println("Digite o CNPJ do cliente:");
+							String cnpj = scanner.readLine();	
+							clienteSinistros = clientes.stream().findFirst(o -> o.getCNPJ().equals(cnpj));
+						}
+						seguradora.visualizarSinistro(clienteSinistros);
 					break;
 					case MenuOperacoesListar.LISTAR_VEICULOS_CLIENTE:
+						System.out.println("Digite F se o cliente é pessoa física e J para pessoa jurídica");
+						char letra = scanner.readLine().charAt(0);
+						Cliente clienteVeiculo;
+						if(letra == 'f' || letra == 'F'){
+							System.out.println("Digite o CPF do cliente:");
+							String cpf = scanner.readLine();
+							clienteVeiculo = clientes.stream().findFirst(o -> o.getCpf().equals(cpf));
+						}
+						else{
+							System.out.println("Digite o CNPJ do cliente:");
+							String cnpj = scanner.readLine();	
+							clienteVeiculo = clientes.stream().findFirst(o -> o.getCNPJ().equals(cnpj));
+						}
+						clienteVeiculo.listarVeiculos();
 					break;
 					case MenuOperacoesLista.LISTAR_VEICULOS_SEGURADORA:
+						System.out.println("Digite o nome da seguradora:");
+						String nomeSeguradora = scanner.readLine();
+						Syst
 					break;
 				}
 				printarMenuListar();
@@ -221,10 +268,54 @@ public class AppMain {
 			while(operacao != MenuOperacoesExcluir.VOLTAR){
 				switch(operacao){
 					case MenuOperacoesExcluir.EXCLUIR_CLIENTE:
+					System.out.println("Digite F para excluir pessoa física e J para pessoa jurídica");
+					String letra = scanner.nextLine();
+					Cliente clienteAExcluir;
+					if(letra.charAt(0) == 'f' || letra.charAt(0) == 'F'){
+						System.out.println("Digite o CPF do cliente a excluir:");
+						String cpf = scanner.nextLine();
+						clienteAExcluir = clientes.stream().findFirst(o -> o.getCpf().equals(cpf));
+					}
+					else{
+						System.out.println("Digite o cnpj do cliente a excluir:");
+						String cnpj = scanner.nextLine();
+						clienteAExcluir = clientes.stream().findFirst(o -> o.getCNPJ().equals(cnpj));
+					}
+					System.out.println("Digite o nome da seguradora do cliente a excluir:");
+					String nomeSeguradora = scanner.nextLine();
+					Seguradora seguradora = seguradoras.stream().findFirst(o -> o.getNome().equals(nomeSeguradora));
+					seguradora.removerCliente(clienteAExcluir);
+					clientes.remove(clientes.indexOf(clienteAExcluir));
 					break;
 					case MenuOperacoesExcluir.EXCLUIR_VEICULO:
-					break;
+						System.out.println("Digite a placa do veículo a ser excluída:");
+						String placa = scanner.nextLine();
+						Veiculo veiculoAExcluir = veiculos.stream.findFirst(o -> o.getCNPJ().equals(cnpj));
+						System.out.println("Digite F se o veículo pertence à pessoa física e J para jurídica");
+						String letra = scanner.readLine().charAt(0);
+						Cliente clienteVeiculo;
+						if (letra == 'f' || letra == 'F'){
+							System.out.println("Digite o CPF do cliente a excluir:");
+							String cpf = scanner.nextLine();
+							clienteVeiculo = clientes.stream().findFirst(o -> o.getCpf().equals(cpf));
+						}
+						else{
+							System.out.println("Digite o cnpj do cliente a excluir:");
+							String cnpj = scanner.nextLine();
+							clienteVeiculo = clientes.stream().findFirst(o -> o.getCNPJ().equals(cnpj));
+						}
+						clienteVeiculo.removerVeiculo(veiculoAExcluir);
+						veiculos.remove(veiculos.indexOf(veiculoAExcluir));
+					break;	
 					case MenuOperacoesExcluir.EXCLUIR_SINISTRO:
+						System.out.println("Digite o id do Sinistro que deseja excluir:");
+						int id = scanner.readInt();
+						scanner.readLine();
+						System.out.println("Digite o nome da Seguradora do sinistro a excluir:");
+						String nomeSeguradora = scanner.readLine();
+						Seguradora seguradoraSinistro = seguradoras.stream().findFirst(o -> o.getNome().equals(nomeSeguradora));
+						if(seguradoraSinistro.removerSinistro(id))
+							System.out.println("Sinistro %d removido com sucesso", id);
 					break;
 				}
 				printarMenuExcluir();
