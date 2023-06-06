@@ -1,4 +1,4 @@
-
+package lab05;
 public enum MenuOperacoesListar{
     VOLTAR (0),
     LISTAR_CLIENTE (1) ,

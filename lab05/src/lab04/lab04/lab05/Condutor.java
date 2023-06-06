@@ -1,3 +1,6 @@
+package lab05;
+import java.util.Date;
+import java.util.ArrayList;
 public class Condutor{
     private final String cpf;
     private String nome;
@@ -13,11 +16,12 @@ public class Condutor{
         this.email = email;
         this.telefone = telefone;
         this.dataNasc = dataNasc;
-        this.listaSinistros = new ListaSinistros();
+        this.listaSinistros = new ArrayList<Sinistro>();
 
     }
-    public adicionarSinistro(Sinistro aAdicionar){
+    public void adicionarSinistro(Sinistro aAdicionar){
         this.listaSinistros.add(aAdicionar);
     }
+    
     
 }

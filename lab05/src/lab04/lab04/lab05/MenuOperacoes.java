@@ -1,4 +1,4 @@
-
+package lab05;
 public enum MenuOperacoes{
     SAIR (0),
     CADASTRAR (1) ,

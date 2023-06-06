@@ -1,6 +1,6 @@
 //Nome: Rafael Andre Alves de Siqueira RA: 243360
 //package lab03;
-
+package lab05;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.LinkedList;
@@ -80,6 +80,9 @@ public class Cliente {
 		}
 		this.listaVeiculos.clear();
 		return true;
+	}
+	public String toString() {
+		
 	}
 
 }

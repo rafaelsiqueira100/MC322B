@@ -1,3 +1,4 @@
+package lab05;
 public enum MenuOperacoesCadastrar{
 
     VOLTAR (0) ,

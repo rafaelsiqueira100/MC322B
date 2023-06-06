@@ -1,7 +1,7 @@
 //Nome: Rafael Andre Alves de Siqueira RA: 243360
 
 //package lab03;
-
+package lab05;
 import java.util.Date;
 // Classe que representa a entidade ClientePj
 public class ClientePJ extends Cliente{

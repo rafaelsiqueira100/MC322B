@@ -1,4 +1,4 @@
-
+package lab05;
 public enum CalcSeguro{
      VALOR_BASE (100.0),
      FATOR_18_30 (1.2),
@@ -10,5 +10,9 @@ public enum CalcSeguro{
      }
      public double getFator(){
           return fator;
+          
+     }
+     public String toString() {
+    	 return Integer.toString(fator);
      }
 }

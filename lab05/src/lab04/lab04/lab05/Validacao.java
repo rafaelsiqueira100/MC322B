@@ -1,3 +1,4 @@
+package lab05;
 public class Validacao{
 
     // algoritmo para validar CPF

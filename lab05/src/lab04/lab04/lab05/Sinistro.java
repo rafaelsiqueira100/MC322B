@@ -1,7 +1,7 @@
 //Nome: Rafael Andre Alves de Siqueira RA: 243360
 //Classe que representa a entidade Sinistro
 //package lab03;
-
+package lab05;
 public class Sinistro {
 	private int id;
 	private String data;

@@ -1,7 +1,7 @@
 //Nome: Rafael Andre Alves de Siqueira RA: 243360
 // Classe que representa a entidade ClientePF
 //package lab04;
-
+package lab05;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 

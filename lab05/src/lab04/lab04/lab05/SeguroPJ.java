@@ -1,7 +1,8 @@
-public class SeguroPF extends Seguro{
+package lab05;
+public class SeguroPJ extends Seguro{
     private Frota frota;
     private ClientePJ cliente;
-    public SeguroPF(Frota frota, ClientePF cliente){
+    public SeguroPJ(Frota frota, ClientePF cliente){
         this.frota = frota;
         this.cliente = cliente;
     }
@@ -16,5 +17,10 @@ public class SeguroPF extends Seguro{
     }
     public void calcularValor(){
 
+    }
+    public String toString(){
+        return "{SeguroPJ:{Frota:"+(this.frota.toString())+", \n"
+                + "ClientePJ: "+this.cliente.toString()+ "}}";
+    
     }
 }

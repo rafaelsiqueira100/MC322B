@@ -1,8 +1,7 @@
 //Nome: Rafael Andre Alves de Siqueira
 //RA: 243360
 //Classe que representa a entidade Veículo
-//package lab03;
-
+package lab05;
 public class Veiculo {
 	private String placa;
 	private String marca;
@@ -44,4 +43,17 @@ public class Veiculo {
 	public void setAnoFabricacao(int anoFabricacao) {
 		this.anoFabricacao = anoFabricacao;
 	}
+	public boolean equals(Object o) {
+		if(this == o) 
+			return true;
+		if(o == null)
+			return false;
+		if (this.getClass() != o.getClass())
+			return false;
+		final Veiculo v = (Veiculo) o;
+		if(v.getPlaca().equals(placa))
+			return true;
+		return false;		
+	}
+	
 }

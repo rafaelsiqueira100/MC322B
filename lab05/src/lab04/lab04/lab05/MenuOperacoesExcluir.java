@@ -1,3 +1,4 @@
+package lab05;
 public enum MenuOperacoesExcluir{
     VOLTAR (0) ,
     EXCLUIR_CLIENTE (1) ,
