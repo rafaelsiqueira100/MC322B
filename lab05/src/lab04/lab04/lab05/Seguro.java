@@ -2,7 +2,7 @@ package lab05;
 import java.util.Date;
 import java.util.ArrayList;
 
-public class Seguro{
+public abstract class Seguro{
     private final int Id;
     private Date dataInicio;
     private Date dataFim;
