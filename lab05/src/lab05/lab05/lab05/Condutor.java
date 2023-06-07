@@ -8,8 +8,8 @@ public class Condutor{
     private String email;
     private String telefone;
     private Date dataNasc;
-    private ArrayList listaSinistros;
-    public Condutor(String cpf, String nome, String telefone, String email, Date dataNasc){
+    private ArrayList<Sinistro> listaSinistros;
+    public Condutor(String cpf, String nome, String telefone, String endereco, String email, Date dataNasc){
         this.cpf = cpf;
         this.nome = nome; 
         this.endereco = endereco;

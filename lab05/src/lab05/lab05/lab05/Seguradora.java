@@ -3,6 +3,7 @@
 //package lab03;
 package lab05;
 import java.util.ListIterator;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -12,7 +13,7 @@ public class Seguradora {
 	private String email;
 	private String endereco;
 	private LinkedList<Cliente> listaClientes;
-	private LinkedList<Sinistro> listaSinistros;
+	private LinkedList<Seguro> listaSeguros;
 	
 	public Seguradora(String nome, String telefone, String email, String endereco) {
 		this.nome = nome;
@@ -20,7 +21,7 @@ public class Seguradora {
 		this.email = email;
 		this.endereco = endereco;
 		this.listaClientes = new LinkedList<Cliente>();
-		this.listaSinistros = new LinkedList<Sinistro>();
+		this.listaSeguros = new LinkedList<Seguro>();
 	}
 	public String getNome() {
 		return nome;
@@ -90,85 +91,17 @@ public class Seguradora {
 			atual.listarVeiculos();
 		}
 	}
-// gera um sinistro para um determinado veiculo e cliente para esta seguradora
-	public boolean gerarSinistro(Date data, String endereco, Veiculo veiculo, Cliente cliente) {
-		//data, endereco, seguradora, veiculo, cliente
-		Sinistro sinistro = new Sinistro(data.toString(), endereco, (Seguradora)this, veiculo, cliente);
-		System.out.println("Sinistro gerado com id "+ sinistro.getId());
-		return listaSinistros.add(sinistro);
 
-	}
-	public boolean removerSinistro(int id){
-		Sinistro aRemover = listaSinistros.stream().filter(o -> o.getId() == id).findFirst().get();
-		return listaSinistros.remove(listaSinistros.indexOf(aRemover)) != null;
-	}
-	public boolean visualizarSinistro(String cliente) {
-		if(cliente == null || cliente.equals(""))
-			return false;
-		ListIterator<Sinistro> iterador = listaSinistros.listIterator(0);
-		boolean printou = false;
-		while(iterador.hasNext()){
-			Sinistro atual = iterador.next();
-			if(atual.getCliente().getNome().equals(cliente)){
-				System.out.println(atual.toString());
-				printou = true;
+	public ArrayList < Seguro > getSegurosPorCliente ( Cliente cliente ) {
+		ArrayList < Seguro > segurosCliente = new ArrayList < >() ;
+		for ( Seguro seguro : listaSeguros ) {
+			if ( seguro . getCliente () . equals ( cliente )) {
+				segurosCliente . add ( seguro );
 			}
 		}
-		return printou;
+		return segurosCliente ;
 	}
-	public boolean visualizarSinistro(Cliente cliente){
-		if(cliente == null)
-			return false;
-		ListIterator<Sinistro> iterador = listaSinistros.listIterator(0);
-		boolean printou = false;
-		while(iterador.hasNext()){
-			Sinistro atual = iterador.next();
-			if(atual.getCliente().equals(cliente)){
-				System.out.println(atual.toString());
-				printou = true;
-			}
-		}
-		return printou;
-	}
-	public boolean visualizarSinistro(String codigo, boolean ehPF) {
-		if(codigo == null || codigo.equals(""))
-			return false;
-		ListIterator<Sinistro> iterador = listaSinistros.listIterator(0);
-		boolean printou = false;
-		while(iterador.hasNext()){
-			Sinistro atual = iterador.next();
-			Cliente clienteAtual = atual.getCliente();
-			if(ehPF && clienteAtual instanceof ClientePF){
-				if(((ClientePF)clienteAtual).getCpf().equals(codigo)){
-					System.out.println(atual.toString());
-					printou = true;
-				}
-			}
-			if(!ehPF && clienteAtual instanceof ClientePJ){
-				if(((ClientePJ)clienteAtual).getCNPJ().equals(codigo)){
-					System.out.println(atual.toString());
-					printou = true;
-				}
-			}
-
-		}
-		return printou;
-	}
-// percorre e printa a lista de sinistros da seguradora
-	public void listarSinistros() {
-		ListIterator<Sinistro> iterador = listaSinistros.listIterator(0);
-		while(iterador.hasNext()){
-			System.out.println(iterador.next().toString());
-		}
-	}
-	public double calcularPrecoSeguroCliente(Cliente clienteACalcular){
-		double score = 0;
-		if(clienteACalcular instanceof ClientePF)
-			score = ((ClientePF)clienteACalcular).calculaScore ();
-		if(clienteACalcular instanceof ClientePJ)
-			score = ((ClientePJ)clienteACalcular).calculaScore();
-		return score * (1 + this.listaSinistros.size());
-	}
+	
 	
 	public double calcularReceita(){
 		double receitaAtual = 0;

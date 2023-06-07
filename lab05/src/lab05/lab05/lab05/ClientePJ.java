@@ -1,20 +1,24 @@
 //Nome: Rafael Andre Alves de Siqueira RA: 243360
 
-//package lab03;
-package lab05;
+//package lab05;
+import java.util.ArrayList;
 import java.util.Date;
 // Classe que representa a entidade ClientePj
 public class ClientePJ extends Cliente{
     public ClientePJ(String nome, String cnpj, Date dataFundacao, String endereco, int qtdFuncionarios) {
-		super(nome, endereco);
+		this.setNome(nome);
+		this.setEndereco(endereco);
 		this.CNPJ = cnpj;
 		this.dataFundacao = dataFundacao;
 		this.qtdFuncionarios = qtdFuncionarios;
+		this.seguros  = new ArrayList<SeguroPJ>();
+		this.frotas = new ArrayList<Frota>();
 	}
 	private final String CNPJ;
     private Date dataFundacao;
 	private int qtdFuncionarios;
-
+	private ArrayList<SeguroPJ> seguros;
+	private ArrayList<Frota> frotas;
 //método toString marcado com override pois foi sobrescrito em relação ao método da classe Cliente
 	@Override
     public String toString() {

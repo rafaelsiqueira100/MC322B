@@ -23,4 +23,12 @@ public class SeguroPJ extends Seguro{
                 + "ClientePJ: "+this.cliente.toString()+ "}}";
     
     }
+    public ClientePJ getCliente(){
+        return this.cliente;
+    }
+    public double calcularPrecoSeguroCliente(){
+		double score = 0;
+        score = cliente.calculaScore();
+		return score * (1 + tamanhoListaSinistros());
+	}
 }

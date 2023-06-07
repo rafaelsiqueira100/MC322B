@@ -1,19 +1,25 @@
 //Nome: Rafael Andre Alves de Siqueira RA: 243360
 // Classe que representa a entidade ClientePF
 //package lab04;
-package lab05;
+//package lab05;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+//import lab05.Veiculo;
+
 public class ClientePF extends Cliente{
     public ClientePF(String nome, String cpf, Date dataNascimento, String endereco, String genero, Date dataLicenca, String educacao, String classeEconomica) {
-    	super(nome, endereco);
+    	this.setNome(nome);
+		this.setEndereco(endereco);
     	this.CPF = cpf;
     	this.genero = genero;
     	this.dataLicenca = dataLicenca;
     	this.educacao = educacao;
     	this.dataNascimento = dataNascimento;
     	this.classeEconomica = classeEconomica;
+		this.listaSeguros = new ArrayList<SeguroPF>();
+		iniciarListaVeiculo();
 	}
 	private final String CPF;
     private String genero;
@@ -21,8 +27,7 @@ public class ClientePF extends Cliente{
     private String educacao;
     private Date dataNascimento;
     private String classeEconomica;
-
-
+	private ArrayList<SeguroPF> listaSeguros;
 //método toString marcado com override pois foi sobrescito em relação ao método da classe Cliente
 	@Override
 	public String toString() {

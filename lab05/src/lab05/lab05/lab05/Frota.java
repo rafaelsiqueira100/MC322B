@@ -3,8 +3,10 @@ import java.util.ArrayList;
 public class Frota{
     private String code;
     private ArrayList<Veiculo> listaVeiculos;
-    public Frota(String code){
+    private SeguroPJ seguro;
+    public Frota(String code, SeguroPJ seguro){
         this.code = code;
+        this.seguro = seguro;
         this.listaVeiculos = new ArrayList<Veiculo>();
     }
     public boolean addVeiculo(Veiculo aAdicionar){
