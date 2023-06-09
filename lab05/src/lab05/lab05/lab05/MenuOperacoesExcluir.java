@@ -13,4 +13,7 @@ public enum MenuOperacoesExcluir{
     public int getOperacao() {
         return this.operacao ;
     }
+    public String toString() {
+		return "{MenuOperacoesExcluir{operacao: "+Integer.toString(operacao)+"}}";
+	}
 }

@@ -15,4 +15,9 @@ public class Frota{
     public boolean removeVeiculo(Veiculo aRemover){
     	return this.listaVeiculos.remove(aRemover);
     }
+    public String toString() {
+		return "{Frota:{Código:"+this.code+",\n"
+				+ "SeguroPJ:"+this.seguro+ "\n"
+				+"}}";
+	}
 }

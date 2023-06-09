@@ -50,8 +50,7 @@ public abstract class Cliente {
 		return "{Cliente:{Nome:"+this.getNome()+",\n"
 				+ "Endereco:"+this.getEndereco()+ ",\n"
 				+ "Valor do Seguro:"+this.valorSeguro + ",\n"
-				+
-				"}}";
+				+"}}";
 	
 	}
 	public boolean equals(Object object){

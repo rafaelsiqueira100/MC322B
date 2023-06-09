@@ -32,7 +32,8 @@ public class Veiculo {
 		this.modelo = modelo;
 	}
 	public String toString() {
-		return "{Veiculo:{Placa:"+this.getPlaca()+", \n Marca: "+this.getMarca()+",\n"
+		return "{Veiculo:{Placa:"+this.getPlaca()+", \n"
+				+" Marca: "+this.getMarca()+",\n"
 				+ "Modelo: "+this.getModelo()+", \n"
 				+ "Ano de Fabricação: "+Integer.toString(anoFabricacao)
 				+ "}}";

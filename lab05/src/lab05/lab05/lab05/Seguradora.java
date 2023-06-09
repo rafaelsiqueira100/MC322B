@@ -47,6 +47,9 @@ public class Seguradora {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	public boolean cadastrarSeguro(Seguro aAdicionar){
+		return listaSeguros.add(aAdicionar);
+	}
 //Adiciona um cliente na lista de clientes da seguradora
 	public boolean cadastrarCliente(Cliente cliente){
 		return listaClientes.add(cliente);

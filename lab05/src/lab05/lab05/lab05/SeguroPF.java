@@ -26,7 +26,7 @@ public class SeguroPF extends Seguro{
     }
     public String toString(){
         return "{SeguroPF:{Veiculo:"+(this.veiculo.toString())+", \n"
-                + "ClientePF: "+this.cliente.toString()+ "}}";
+                + "ClientePF: "+this.cliente.toString()+ "\n}}";
     
     }
     public ClientePF getCliente(){
@@ -44,5 +44,5 @@ public class SeguroPF extends Seguro{
 		double score = 0;
         score = clienteACalcular.calculaScore ();
 		return score * (1 + tamanhoListaSinistros());
-	}
+    }
 }

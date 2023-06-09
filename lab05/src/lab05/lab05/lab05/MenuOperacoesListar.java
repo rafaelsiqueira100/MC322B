@@ -15,4 +15,7 @@ public enum MenuOperacoesListar{
     public int getOperacao() {
         return this.operacao ;
     }
+    public String toString() {
+		return "{MenuOperacoesListar{operacao: "+Integer.toString(operacao)+"}}";
+	}
 }

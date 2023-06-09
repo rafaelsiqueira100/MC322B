@@ -20,7 +20,7 @@ public class SeguroPJ extends Seguro{
     }
     public String toString(){
         return "{SeguroPJ:{Frota:"+(this.frota.toString())+", \n"
-                + "ClientePJ: "+this.cliente.toString()+ "}}";
+                + "ClientePJ: "+this.cliente.toString()+ "\n}}";
     
     }
     public ClientePJ getCliente(){

@@ -1,4 +1,4 @@
-package lab05;
+//package lab05;
 import java.util.Date;
 import java.util.ArrayList;
 public class Condutor{
@@ -22,6 +22,13 @@ public class Condutor{
     public void adicionarSinistro(Sinistro aAdicionar){
         this.listaSinistros.add(aAdicionar);
     }
-    
+    public String toString() {
+		return "{Condutor:{Nome:"+this.nome+",\n"
+				+ "Endereco:"+this.endereco+ ",\n"
+				+ "E-mail:"+this.email + ",\n"
+				+ "Telefone: "+this.telefone +",\n"
+                + "DataNasc" + this.dataNasc.toString() + "\n"
+				+"}}";
+	}
     
 }

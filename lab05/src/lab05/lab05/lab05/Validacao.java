@@ -91,4 +91,7 @@ public class Validacao{
         }
         return true;
     }
+	public String toString(){
+		return "{Validacao:{}}\n";
+	}
 }
