@@ -4,6 +4,7 @@
 //package lab05;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ListIterator;
 import java.util.concurrent.TimeUnit;
 
 //import lab05.Veiculo;
@@ -21,13 +22,33 @@ public class ClientePF extends Cliente{
 		this.listaSeguros = new ArrayList<SeguroPF>();
 		iniciarListaVeiculo();
 	}
+
 	private final String CPF;
     private String genero;
     private Date dataLicenca;
     private String educacao;
     private Date dataNascimento;
     private String classeEconomica;
-	private ArrayList<SeguroPF> listaSeguros;
+	private ArrayList<Veiculo> listaVeiculos;
+	public void iniciarListaVeiculo(){
+		this.listaVeiculos = new ArrayList<Veiculo>();
+	}
+	public int numeroVeiculos(){
+		return this.listaVeiculos.size();
+	}
+// adiciona um veículo na lista de veículos
+	public boolean cadastrarVeiculo(Veiculo aCadastrar){
+		return listaVeiculos.add(aCadastrar);
+	}
+	public boolean removerVeiculo(Veiculo veiculo){
+		return listaVeiculos.remove(listaVeiculos.indexOf(veiculo)) != null;
+	}
+	public void listarVeiculos() {
+		ListIterator<Veiculo> iterador = listaVeiculos.listIterator(0);
+		while(iterador.hasNext()){
+			System.out.println(iterador.next().toString());
+		}
+	}
 //método toString marcado com override pois foi sobrescito em relação ao método da classe Cliente
 	@Override
 	public String toString() {
@@ -87,8 +108,8 @@ public class ClientePF extends Cliente{
 			fator_idade = CalcSeguro.FATOR_18_30;
 		else if (idade < 60)
 			fator_idade = CalcSeguro.FATOR_30_60;
-		else 
+		else
 			fator_idade = CalcSeguro.FATOR_60_90;
-		return CalcSeguro.VALOR_BASE.getFator() * fator_idade.getFator() * super.numeroVeiculos(); 
+		return CalcSeguro.VALOR_BASE.getFator() * fator_idade.getFator() * 1/(super.numeroVeiculos()+2); 
 	}
 }

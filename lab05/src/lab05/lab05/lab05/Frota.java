@@ -9,6 +9,9 @@ public class Frota{
         this.seguro = seguro;
         this.listaVeiculos = new ArrayList<Veiculo>();
     }
+    public int qtdVeiculos(){
+        return listaVeiculos.size();
+    }
     public boolean addVeiculo(Veiculo aAdicionar){
     	return this.listaVeiculos.add(aAdicionar);
     }

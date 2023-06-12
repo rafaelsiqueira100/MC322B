@@ -40,6 +40,12 @@ public class SeguroPF extends Seguro{
 		return listaSinistros.add(sinistro);
 
 	}
+    public double calcularValor(int qtdSinistrosCliente, int qtdSinistrosCondutor){
+        double valor = cliente.calculaScore();
+        valor *= (2+ qtdSinistrosCliente/10) * (5+ qtdSinistrosCondutor/10);
+        return valor;
+
+    }
     public double calcularPrecoSeguroCliente(Cliente clienteACalcular){
 		double score = 0;
         score = clienteACalcular.calculaScore ();

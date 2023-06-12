@@ -1,4 +1,4 @@
-package lab05;
+//package lab05;
 public class SeguroPJ extends Seguro{
     private Frota frota;
     private ClientePJ cliente;
@@ -15,9 +15,12 @@ public class SeguroPJ extends Seguro{
     public void gerarSinistro(){
 
     }
-    public void calcularValor(){
-
+    public double calcularValor(int qtdSinistrosCliente, int qtdSinistrosCondutor){
+        double score = cliente.calculaScore();
+        score *= (2 + qtdSinistrosCliente/10)*(5+qtdSinistrosCondutor/10);
+        return score;
     }
+    
     public String toString(){
         return "{SeguroPJ:{Frota:"+(this.frota.toString())+", \n"
                 + "ClientePJ: "+this.cliente.toString()+ "\n}}";

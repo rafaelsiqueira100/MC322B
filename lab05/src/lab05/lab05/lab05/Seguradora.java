@@ -1,7 +1,7 @@
 //Nome: Rafael Andre Alves de Siqueira RA:243360
 //Classe que representa a entidade Seguradora
 //package lab03;
-package lab05;
+//package lab05;
 import java.util.ListIterator;
 import java.util.ArrayList;
 import java.util.Date;
@@ -108,10 +108,15 @@ public class Seguradora {
 	
 	public double calcularReceita(){
 		double receitaAtual = 0;
-		ListIterator<Cliente> iterador = listaClientes.listIterator(0);
+		ListIterator<Seguro> iterador = listaSeguros.listIterator(0);
 		System.out.println("{Receita da seguradora "+this.getNome()+":{");
 		while(iterador.hasNext()){
-			Cliente atual = iterador.next();
+			Seguro atual = iterador.next();
+			ListIterator<Seguro> iteradorSeguro = listaSeguros.listIterator(0);
+			while(iteradorSeguro.hasNext()){
+				Seguro seguroAtual = iteradorSeguro.next();
+				
+			}
 			double precoSeguroCliente = calcularPrecoSeguroCliente(atual);
 			System.out.println(atual.getNome() +": R$ "+ precoSeguroCliente);
 			receitaAtual += precoSeguroCliente;

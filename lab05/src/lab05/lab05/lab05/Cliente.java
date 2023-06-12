@@ -10,9 +10,11 @@ import java.util.LinkedList;
 public abstract class Cliente {
 	private String nome;
 	private String endereco;
-	private double valorSeguro;
-	private ArrayList<Veiculo> listaVeiculos;
-	public void iniciarListaVeiculo(){
+	private String telefone;
+	private String email;
+	//private double valorSeguro;
+	//private ArrayList<Veiculo> listaVeiculos;
+	/*public void iniciarListaVeiculo(){
 		this.listaVeiculos = new ArrayList<Veiculo>();
 	}
 	public int numeroVeiculos(){
@@ -33,9 +35,12 @@ public abstract class Cliente {
 		while(iterador.hasNext()){
 			System.out.println(iterador.next().toString());
 		}
-	}
+	}*/
 	public String getEndereco() {
 		return endereco;
+	}
+	public String getTelefone(){
+		return telefone;
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
@@ -43,13 +48,20 @@ public abstract class Cliente {
 	public String getNome() {
 		return nome;
 	}
+	public void setTelefone(String telefone){
+		this.telefone = telefone;
+	}
+	public String getEmail(){
+		return email;
+	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	public String toString() {
 		return "{Cliente:{Nome:"+this.getNome()+",\n"
 				+ "Endereco:"+this.getEndereco()+ ",\n"
-				+ "Valor do Seguro:"+this.valorSeguro + ",\n"
+				+ "Telefone:"+this.getTelefone()+ ",\n"
+				+ "E-mail:"+this.getEmail()+ "\n"
 				+"}}";
 	
 	}
