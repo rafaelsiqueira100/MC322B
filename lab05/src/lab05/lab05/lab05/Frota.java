@@ -2,11 +2,10 @@ package lab05;
 import java.util.ArrayList;
 public class Frota{
     private String code;
+    private static int ultimoId = -1;
     private ArrayList<Veiculo> listaVeiculos;
-    private SeguroPJ seguro;
-    public Frota(String code, SeguroPJ seguro){
-        this.code = code;
-        this.seguro = seguro;
+    public Frota(){
+        this.code = Integer.toString(++ultimoId);
         this.listaVeiculos = new ArrayList<Veiculo>();
     }
     public int qtdVeiculos(){

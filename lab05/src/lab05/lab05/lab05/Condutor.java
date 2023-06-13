@@ -9,7 +9,8 @@ public class Condutor{
     private String telefone;
     private Date dataNasc;
     private ArrayList<Sinistro> listaSinistros;
-    public Condutor(String cpf, String nome, String telefone, String endereco, String email, Date dataNasc){
+    public Condutor(String cpf, String nome, String telefone, String endereco, String email,
+     Date dataNasc){
         this.cpf = cpf;
         this.nome = nome; 
         this.endereco = endereco;

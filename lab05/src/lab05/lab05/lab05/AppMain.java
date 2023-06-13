@@ -16,6 +16,7 @@ public class AppMain {
 			LinkedList<Cliente> clientes = new LinkedList<Cliente>();
 			LinkedList<Veiculo> veiculos = new LinkedList<Veiculo>();
 			LinkedList<Seguradora> seguradoras = new LinkedList<Seguradora>();
+
 			ClientePF clientePF1 = new ClientePF("Rafael", "17123448707", 
 					AppMain.converterData("12/07/1989"), "Rua Cajá, 1568", "Masculino", new Date(System.currentTimeMillis()), "Ensino superior incompleto", "B");
 			if(Validacao.validarCPF(clientePF1.getCpf())){
@@ -56,6 +57,10 @@ public class AppMain {
 			clientePJ1.setValorSeguro(seguradora1.calcularPrecoSeguroCliente(clientePJ1));
 			clientePJ2.setValorSeguro(seguradora1.calcularPrecoSeguroCliente(clientePJ2));
 			seguradora1.calcularReceita();
+			Condutor condutor1 = new Condutor("471.587.450-40", "Alexandre Farias", "011-84565-9854", "Rua Carlos Feijó, 1432", "ad@hotmail.com", converterData("08/12/2001"));
+			Condutor condutor2 = new Condutor("328.929.120-08", "Juliana Assange", "019-98456-8545", "Avenida 1, 1234", "j@outlook.com", converterData("22/09/1999"));;
+			SeguroPJ seguro1 = new SeguroPJ();
+			Frota frota1 = new Frota();
 			Scanner scannerTeclado = new Scanner(System.in);
 			atualizarTelaPrincipal(scannerTeclado, clientes, veiculos, seguradoras);
 			scannerTeclado.close();
